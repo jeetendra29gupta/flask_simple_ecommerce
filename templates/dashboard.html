@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block title %}
+Panchakanya Fashion
+{% endblock %}
+{% block body %}
+{% include 'header.html' %}
+{% include 'navigation.html' %}
+{% include 'message.html' %}
+<div class="w3-row-padding w3-section w3-center">
+    <div class="w3-col s6">
+        <div class="w3-border w3-round">
+            <h3>Do you want to Add a new Product?</h3>
+            <div class="w3-center w3-section">
+                <div class="w3-bar">
+                    <a class="w3-button w3-black w3-card w3-round" href="/add_product">Click here</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="w3-col s6">
+        <div class="w3-border w3-round">
+            <h3>Do you want to edit your products?</h3>
+            <div class="w3-center w3-section">
+                <div class="w3-bar">
+                    <a class="w3-button w3-black w3-card w3-round" href="/edit_product">Click here</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% if rows %}
+<div class="w3-row-padding w3-section w3-center">
+    {% for row in rows %}
+    <div class="w3-col s3">
+        <div class="w3-border w3-round w3-card-4 w3-panel">
+            <img src="{{ url_for('static', filename = 'images/'+row.filename) }}" class="w3-section" alt="{{row.name}}"
+                 width="80"
+                 height="80">
+            <div class="w3-container">
+                <h5 class="">{{row.name}}</h5>
+                <p class="">{{row.category}}</p>
+                <p class="">{{row.description}}</p>
+                <p class="">{{row.price_range}}</p>
+                <p class="">{{row.comments}}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,18 @@
+<div class="w3-bar w3-black w3-card w3-round" id="navigation">
+    <a href="/" class="w3-bar-item w3-button w3-mobile">Home</a>
+    <a href="#" class="w3-bar-item w3-button w3-mobile">About Us</a>
+    <a href="#" class="w3-bar-item w3-button w3-mobile">Contact Us</a>
+    {% if session['username'] %}
+    <a href="/logout" class="w3-bar-item w3-button w3-mobile w3-right">Logout</a>
+    <div class="w3-dropdown-hover w3-mobile w3-right">
+        <button class="w3-button">{{user.fullname}} &#11167;</button>
+        <div class="w3-dropdown-content w3-bar-block w3-dark-grey">
+            <a href="/dashboard" class="w3-bar-item w3-button w3-mobile">Dashboard</a>
+            <a href="/setting" class="w3-bar-item w3-button w3-mobile">Setting</a>
+        </div>
+    </div>
+    {% else %}
+    <a href="/signup" class="w3-bar-item w3-button w3-mobile w3-right">Signup</a>
+    <a href="/login" class="w3-bar-item w3-button w3-mobile w3-right">Login</a>
+    {% endif %}
+</div>

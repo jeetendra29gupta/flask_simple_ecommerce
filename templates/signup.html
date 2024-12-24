@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block title %}
+Panchakanya Fashion
+{% endblock %}
+{% block body %}
+{% include 'header.html' %}
+{% include 'navigation.html' %}
+{% include 'message.html' %}
+<form class="w3-container w3-card w3-light-grey w3-section w3-border w3-round" method="POST"
+      action="{{ url_for('signup') }}" style="margin:0 auto;width:40%">
+    <p>
+        <label>Full Name</label>
+        <input class="w3-input w3-border w3-round" type="text" required="required" name="fullname"
+               placeholder="fullname">
+    </p>
+    <p>
+        <label>Username</label>
+        <input class="w3-input w3-border w3-round" type="text" required="required" name="username"
+               placeholder="username">
+    </p>
+    <p>
+        <label>Email ID</label>
+        <input class="w3-input w3-border w3-round" type="text" required="required" name="email"
+               placeholder="email">
+    </p>
+    <p>
+        <label>Password</label>
+        <input class="w3-input w3-border w3-round" type="password" required="required" name="password"
+               placeholder="password">
+    </p>
+    <p>
+        <label>Confirm Password</label>
+        <input class="w3-input w3-border w3-round" type="password" required="required" name="re_password"
+               placeholder="password">
+    </p>
+    <p>
+        <button type="submit" class="w3-button w3-block w3-black w3-border w3-round">Sign up</button>
+    </p>
+</form>
+
+{% endblock %}

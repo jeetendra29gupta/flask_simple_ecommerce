@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %} Panchakanya Fashion {% endblock %}
+
+{% block body %}
+
+{% include 'header.html' %}
+{% include 'navigation.html' %}
+{% include 'message.html' %}
+
+{% if rows %}
+<table class="w3-table-all w3-section">
+    <tr>
+        <th>Category</th>
+        <th>Product Name</th>
+        <th>Description</th>
+        <th>Comments</th>
+        <th>Price Range</th>
+        <th>Action</th>
+    </tr>
+    {% for row in rows %}
+    <tr>
+        <td>{{row.category}}</td>
+        <td>{{row.name}}</td>
+        <td>{{row.description}}</td>
+        <td>{{row.comments}}</td>
+        <td>{{row.price_range}}</td>
+        <td>
+            <a href="/update_product/{{row.id}}" class="w3-button w3-circle">
+                <img src="{{ url_for('static', filename = 'images/edit.png') }}" height="20" width="20">
+            </a>
+            <a href="/delete_product/{{row.id}}" class="w3-button w3-circle">
+                <img src="{{ url_for('static', filename = 'images/delete.png') }}" height="20" width="20">
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+
+{% endblock %}

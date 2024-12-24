@@ -1,0 +1,12 @@
+pip
+setuptools
+wheel
+
+python-dotenv
+requests
+
+Flask
+
+SQLAlchemy
+
+bcrypt

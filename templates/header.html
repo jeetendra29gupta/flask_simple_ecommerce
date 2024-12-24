@@ -1,0 +1,28 @@
+<div class="w3-row w3-section" id="header">
+    <div class="w3-col w3-container" style="width:10vw">
+        <img src="{{url_for('static', filename='images/logo.jpg')}}" alt="Logo" width="80" height="80">
+    </div>
+    <div class="w3-col w3-container" style="width:60vw;">
+        <h1>Panchakanya Fashion</h1>
+    </div>
+    <div class="w3-rest w3-container">
+        <h3 id="datetime">Date Time</h3>
+    </div>
+</div>
+<script>
+    function fetchDateTime() {
+    fetch('/date_time')
+        .then(function (response) {
+            return response.text();
+        })
+        .then(function (data) {
+            document.getElementById("datetime").innerHTML=data;
+        })
+        .catch(function (err) {
+            console.log('error: ' + err);
+        });
+    }
+    window.addEventListener('load', function () {
+        setInterval(fetchDateTime, 1000);
+    });
+</script>

@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %} Panchakanya Fashion {% endblock %}
+
+{% block body %}
+
+{% include 'header.html' %}
+{% include 'navigation.html' %}
+{% include 'message.html' %}
+
+<form class="w3-container w3-card w3-light-grey w3-section w3-border w3-round" method="POST"
+      action="{{ url_for('add_product') }}" style="margin:0 auto;width:40%" enctype="multipart/form-data">
+    <p>
+        <label>Category</label>
+        <input class="w3-input w3-border w3-round" type="text" required="required" name="category"
+               placeholder="category">
+    </p>
+    <p>
+        <label>Product Name</label>
+        <input class="w3-input w3-border w3-round" type="text" required="required" name="product_name"
+               placeholder="product name">
+    </p>
+    <p>
+        <label>Description</label>
+        <input class="w3-input w3-border w3-round" type="text" required="required" name="description"
+               placeholder="description">
+    </p>
+    <p>
+        <label>Comments</label>
+        <input class="w3-input w3-border w3-round" type="text" required="required" name="comments"
+               placeholder="comments">
+    </p>
+    <p>
+        <label>Price Range</label>
+        <select class="w3-select w3-border w3-round" required="required" name="price_range">
+            <option value="" disabled selected>Choose your option</option>
+            <option value="₹100-₹500">₹100-₹500</option>
+            <option value="₹500-₹1000">₹500-₹1000</option>
+            <option value="₹1000-₹2000">₹1000-₹2000</option>
+            <option value="₹2000-₹5000">₹2000-₹5000</option>
+            <option value="₹5000-₹10000">₹5000-₹10000</option>
+        </select>
+    </p>
+    <p>
+        <label>Product Image</label>
+        <input type="file" class="w3-input w3-border w3-round" required="required" name="image" accept="image/">
+    </p>
+    <p>
+        <button type="submit" class="w3-button w3-block w3-black w3-border w3-round">Add</button>
+    </p>
+</form>
+
+{% endblock %}
